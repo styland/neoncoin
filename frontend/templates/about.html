@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+
+{% block title %}About NeonCoin{% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - NeonCoin</title>
+    {% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    {%endblock%}
+</head>
+{% block content %}
+<body>
+    
+
+    <main>
+        <section class="about-container">
+            <h2>About NeonCoin</h2>
+            <p>NeonCoin is a virtual currency system for trading Neo, Neons, and Neolites. Our platform allows seamless currency conversion and secure transactions. Join us and experience the future of virtual finance!</p>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Fast Transactions</h3>
+                    <p>Convert your coins with ease and speed, without any delays.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Secure Trading</h3>
+                    <p>Your currency is protected by our highest standards of security.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>User-Friendly</h3>
+                    <p>An intuitive interface that makes managing your currency simple and enjoyable.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Contact Us</h3>
+                    <p> conatct us  at --rotimidamilola2011@gmail.com --oluwadamylola@icloud.com
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NeonCoin. All Rights Reserved.</p>
+    </footer>
+ 
+</body>
+{%endblock%}
+</html>

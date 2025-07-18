@@ -1,0 +1,73 @@
+body {
+    background-color: #1c1c1c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffd700;
+    padding: 30px;
+}
+
+.container {
+    background-color: #2e2e2e;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 0 0 12px #ffd70050;
+}
+
+h1 {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 25px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #1a1a1a;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1f1f1f;
+}
+
+.user-table th, .user-table td {
+    border: 1px solid #ffd700;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.user-table th {
+    background-color: #2e2e2e;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #242424;
+}
+
+.user-table tr:hover {
+    background-color: #333;
+    cursor: pointer;
+}
+.btn{
+    background-color: #ffd700;
+    color: #1a1a1a;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.btn:hover{
+    background-color: #ffc107
+}

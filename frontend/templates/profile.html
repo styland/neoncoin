@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+
+    {% block title %}Neoncoin profile{% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    {% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+<main class="dashboard">
+    <section class="profile-container">
+        <h2>Welcome, {{ user['username'] }}</h2>
+
+        <div class="profile-picture">
+            <img src="{{ url_for('static', filename='img/' + (user['profile_picture'] or 'default.png')) }}" alt="Profile Picture">
+        </div>
+
+        <p>Your unique reference for trading: <strong>{{ user['account_number'] }}</strong></p>
+
+        <div class="balance">
+            <p><strong>Neo Balance:</strong> {{ user['neo'] or 0 }}</p>
+            <p><strong>Neons Balance:</strong> {{ user['neons'] or 0 }}</p>
+            <p><strong>Neolites Balance:</strong> {{ user['neolites'] or 0 }}</p>
+        </div>
+
+        <a href="{{ url_for('dashboard') }}" class="btn">Go to Dashboard</a>
+    </section>
+</main>
+{% endblock %}
+</body>
+</html>

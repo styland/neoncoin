@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to NeonCoin{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<header>
+  <div id="particles-js"></div>
+  <nav>
+    <div class="logo">
+      <h1>NeonCoin</h1>
+    </div>
+    <div class="nav-links">
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+      <a href="/about">About</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Welcome to NeonCoin</h2>
+  <p>Your trusted platform for digital currency. Join us today and start managing your virtual funds with ease!</p>
+  <a href="/register" class="cta-button">Get Started</a>
+</section>
+
+<section class="features">
+  <h2>Why Choose NeonCoin?</h2>
+  <div class="feature-cards">
+    <div class="feature-card">
+      <h3>Secure Transactions</h3>
+      <p>NeonCoin ensures that your transactions are safe and secure with the latest technology.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Fast Transfers</h3>
+      <p>Send and receive funds quickly with minimal fees.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Easy Integration</h3>
+      <p>Seamlessly integrate NeonCoin with your digital wallet for easy access to your funds.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

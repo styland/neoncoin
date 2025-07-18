@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Transaction Receipt - NeonCoin{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/receipt.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="receipt-container">
+    <div class="receipt-card">
+        <h1>✅ Transaction Successful</h1>
+        <p class="receipt-info"><strong>Amount:</strong> {{ transaction.amount }} {{ currency|capitalize }}</p>
+        <p class="receipt-info"><strong>Receiver Account:</strong> {{ transaction.receiver }}</p>
+        <p class="receipt-info"><strong>currency:</strong> {{ transaction.currency }}</p>
+        <p class="receipt-info"><strong>Date:</strong> {{ now }}</p>
+
+        <a href="/dash" class="btn neon-btn">Return to Dashboard</a>
+        <a href="/trade" class="btn neon-btn secondary">Make Another Trade</a>
+    </div>
+</main>
+{% endblock %}

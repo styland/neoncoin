@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/buy.css') }}">
+{% endblock %}
+{% block content %}
+<div class="wheel-container">
+  <h2>🎡 Spin the Wheel</h2>
+
+  <p>You have <strong>{{ spins }}</strong> spin{{ 's' if spins != 1 else '' }} available.</p>
+
+  {% if spins < max_spins %}
+    <p>Next spin in <span id="countdown">--:--</span></p>
+  {% else %}
+    <p>You have the maximum spins available.</p>
+  {% endif %}
+
+  <form method="POST">
+    <button id="spin-btn" class="btn" {% if spins < 1 %}disabled{% endif %}>Spin Now</button>
+  </form>
+
+  {% if prize %}
+    <div class="prize-box">
+      <h3>🎉 You won!</h3>
+      <p>{{ prize.neo }} Neo • {{ prize.neons }} Neons • {{ prize.neolites }} Neolites</p>
+    </div>
+  {% endif %}
+</div>
+
+{% if next_spin_time %}
+<script>
+  const target = new Date("{{ next_spin_time.strftime('%Y-%m-%d %H:%M:%S') }} UTC").getTime();
+  const el = document.getElementById('countdown');
+  function tick() {
+    const now = new Date().getTime();
+    const diff = target - now;
+    if (diff <= 0) {
+      el.textContent = "Ready!";
+      clearInterval(timer);
+      return;
+    }
+    const m = Math.floor(diff/60000), s = Math.floor((diff%60000)/1000);
+    el.textContent = `${m}m ${s}s`;
+  }
+  tick();
+  const timer = setInterval(tick, 1000);
+</script>
+{% endif %}
+{% endblock %}

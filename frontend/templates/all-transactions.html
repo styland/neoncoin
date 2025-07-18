@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}All Transactions - NeonCoin{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/transact.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="all-transactions-page">
+    <h2>All Transactions</h2>
+
+    {% if transactions %}
+    <table class="transactions-table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Other User</th>
+                <th>Currency</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in transactions %}
+            <tr>
+                <td>{{ 'Sent' if t.sender_id == session['user_id'] else 'Received' }}</td>
+                <td>{{ t.other_user }}</td>
+                <td>{{ t.currency|capitalize }}</td>
+                <td>{{ t.amount }}</td>
+                <td>{{ t.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="no-transactions">No transactions found.</p>
+    {% endif %}
+
+    <div class="back-btn-wrapper">
+        <a href="{{ url_for('dashboard') }}" class="neon-btn back-btn">Back to Dashboard</a>
+    </div>
+</main>
+{% endblock %}

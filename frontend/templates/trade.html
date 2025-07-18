@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+
+{% block title %}Welcome to NeonCoin{% endblock %}
+    <meta charset="UTF-8">
+    <title>Trade Coins - NeonCoin</title>
+    {% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/trade.css') }}">
+    {%endblock%}
+</head>
+{% block content %}
+<body>
+    <div class="container">
+        <h1>🔁 Trade Coins</h1>
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <form method="POST" action="confirm_trade">
+            <input type="text" name="receiver" placeholder="Receiver's Account Number" required><br>
+            <select name="currency" required>
+                <option value="neo">Neo</option>
+                <option value="neons">Neons</option>
+                <option value="neolites">Neolites</option>
+            </select><br>
+            <input type="number" name="amount" placeholder="Amount" required><br>
+            <button type="submit">Send Coins</button>
+        </form>
+        <a href="/dash">⬅ Back to Dashboard</a>
+    </div>
+</body>
+{%endblock%}
+</html>

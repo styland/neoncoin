@@ -1,0 +1,67 @@
+.receipt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: #111;
+    color: #fff;
+    padding: 2rem;
+    
+    font-family: 'Segoe UI', sans-serif;
+}
+body{
+    background: #1c1c1c;
+}
+
+.receipt-card {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 450px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.receipt-card h2 {
+    text-align: center;
+    color: #00ffff;
+    margin-bottom: 1.5rem;
+}
+
+.receipt-card p {
+    justify-self: center;
+    align-self: center;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.receipt-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.neon-btn {
+    background: #00ffff;
+    color: #111;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.neon-btn:hover {
+    background: #00cccc;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

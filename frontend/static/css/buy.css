@@ -1,0 +1,52 @@
+body {
+  background: #0d0d0d;
+  color: #00ffe7;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
+.wheel-container {
+  margin-top: 50px;
+}
+
+.wheel {
+  width: 250px;
+  height: 250px;
+  border: 8px solid #00ffe7;
+  border-radius: 50%;
+  margin: 30px auto;
+  background: conic-gradient(#111 10%, #0ff 10% 20%, #111 20% 30%, #0f0 30% 40%, #111 40% 50%, #ff0 50% 60%, #111 60% 70%, #f0f 70% 80%, #111 80% 90%, #f00 90% 100%);
+  transition: transform 3s ease-out;
+}
+
+.spin-animate {
+  animation: spin 3s ease-out;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(1440deg); }
+}
+
+button {
+  padding: 12px 30px;
+  background: #00ffe7;
+  border: none;
+  font-weight: bold;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cooldown-msg {
+  margin-top: 20px;
+  color: #ccc;
+}
+
+.prize-box {
+  margin-top: 30px;
+  border: 2px dashed #0ff;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(0, 255, 255, 0.05);
+}

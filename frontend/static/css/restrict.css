@@ -1,0 +1,33 @@
+body {
+    background-color: #1c1c1c;
+    color: #ffd700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.restrict-container {
+    text-align: center;
+    background-color: #2e2e2e;
+    padding: 40px;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ffd700;
+}
+
+.restrict-container a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #1a1a1a;
+    background-color: #ffd700;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.restrict-container a:hover {
+    background-color: #ffc107;
+}

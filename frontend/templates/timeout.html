@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Account Timed Out{% endblock %}
+    {% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/restrict.css') }}">
+    {% endblock %}
+</head>
+{% block content %}
+<body>
+    <div class="restrict-container">
+        <h1>Your account has been temporarily suspended</h1>
+        <p>You can access your account again in <strong>{{ minutes_left }}</strong> minute(s).</p>
+        <a href="/">Return Home</a>
+    </div>
+</body>
+{% endblock %}
+</html>

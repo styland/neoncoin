@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Account Banned{% endblock %}
+    {% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/restrict.css') }}">
+    {% endblock %}
+</head>
+{% block content %}
+<body>
+    <div class="restrict-container">
+        <h1>Your account has been banned</h1>
+        <p>If you believe this is a mistake, please contact support.</p>
+        <a href="/">Return Home</a>
+    </div>
+</body>
+{% endblock %}
+</html>

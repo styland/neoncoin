@@ -1,0 +1,188 @@
+/* General Styles */
+body {
+    justify-content: center;
+    align-content: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background: #111;
+    color: white;
+}
+
+/* Header Styles */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 10px 20px;
+    background-color: #111; /* Dark background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav .logo h1 {
+    font-size: 32px;
+    color: #00ff00; /* Neon green text */
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; /* Neon green glow effect */
+}
+
+nav .nav-links a {
+    margin: 0 15px;
+    color: #00ff00; /* Neon green links */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Neon green glow effect */
+}
+
+nav .nav-links a:hover {
+    color: #00ff00;
+    text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+}
+
+/* Particle Background */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Login Form Section */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    height: 100vh;
+    padding-top: 80px;
+    position: relative;
+}
+
+
+.login-form {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    width: 400px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid #00bfff; /* Neon blue border */
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(0, 191, 255, 1), 0 0 50px rgba(0, 191, 255, 0.8);
+    }
+}
+
+.login-form h2 {
+    font-size: 36px;
+    color: #00bfff;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    color: #fff;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    background-color: #444;
+    border: 2px solid #00bfff; /* Neon blue focus border */
+}
+
+/* Submit Button */
+.cta-button {
+    background-color: #00bfff; /* Neon blue background */
+    color: #111;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px #00bfff; /* Neon blue glow */
+}
+
+.cta-button:hover {
+    background-color: #008fbf;
+    box-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff;
+}
+
+/* Links */
+a {
+    color: #00bfff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #008fbf;
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    color: #aaa;
+    font-size: 14px;
+    margin: 0;
+}

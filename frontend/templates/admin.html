@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Admin Panel - NeonCoin{% endblock %}
+    <meta charset="UTF-8">
+    {% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <style>
+        .form-section { display: none; }
+        .active { display: block; }
+        .toggle-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .toggle-buttons button {
+            background-color: #ffd700;
+            color: #1a1a1a;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .toggle-buttons button:hover {
+            background-color: #ffc107;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+    {% endblock %}
+</head>
+{% block content %}
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+
+        <div class="toggle-buttons">
+            <button onclick="showForm('updateForm')">Update Balance</button>
+            
+            <button onclick="showForm('timeoutForm')">Timeout Account</button>
+            <button onclick="showForm('edit-user-form')">Edit User</button>
+            <button onclick="showForm('giveSpinsForm')">Give Spins</button>
+
+            <button onclick="showForm('normalform')">Hide</button>
+            <a href="/admin/users">Show users</a>
+        </div>
+        <!-- Give Spins Form -->
+<form method="POST" class="form-section" id="giveSpinsForm">
+    <input type="hidden" name="form_type" value="give_spins">
+    <input type="text" name="account_number" placeholder="Account Number" required>
+    <input type="number" name="spins" placeholder="Number of Spins" min="1" required>
+    <button class="but" type="submit">Give Spins</button>
+</form>
+
+        <!-- Make Admin Form -->
+        <form method="POST" class="form-section" id="makeAdminForm">
+            <input type="hidden" name="form_type" value="make_admin">
+            <input type="text" name="account_number" placeholder="Account Number to Make Admin" required>
+            <button class="but" type="submit">Make Admin</button>
+        </form>
+        
+        <!-- Hide form-->
+        <form action="" id="normalform"></form>
+        <!-- Update Balance Form -->
+        <form method="POST" class="form-section active" id="updateForm">
+            <input type="hidden" name="form_type" value="update">
+            <input type="text" name="account_number" placeholder="Account Number" required>
+            <input type="number" name="neo" placeholder="Neo">
+            <input type="number" name="neons" placeholder="Neons">
+            <input type="number" name="neolites" placeholder="Neolites">
+            <button class="but" type="submit">Update Balance</button>
+        </form>
+
+        <!-- Ban Account Form -->
+        <form method="POST" class="form-section" id="banForm">
+            <input type="hidden" name="form_type" value="ban">
+            <input type="text" name="account_number" placeholder="Account Number to Ban" required>
+            <button class="but" type="submit">Ban Account</button>
+        </form>
+
+        <!-- Timeout Account Form -->
+        <form method="POST" class="form-section" id="timeoutForm">
+            <input type="hidden" name="form_type" value="timeout">
+            <input type="text" name="account_number" placeholder="Account Number to Timeout" required>
+            <input type="number" name="duration" placeholder="Duration (in minutes)" required>
+            <button class="but" type="submit">Timeout Account</button>
+        </form>
+        <div id="edit-user-form" class="form-section">
+            <h2>Edit User Details</h2>
+            <form method="POST" action="/admin/edit_user">
+                <input type="text" name="account_number" placeholder="Account Number of User" required>
+                <input type="text" name="new_username" placeholder="New Username">
+                <input type="email" name="new_email" placeholder="New Email">
+                <input type="text" name="new_account_number" placeholder="New Account Number">
+                <button class="but" type="submit">Update User Info</button>
+            </form>
+        </div>
+        
+        <a href="/dash" style="display:block; text-align:center; margin-top:20px;">Back to Dashboard</a>
+    </div>
+    
+    <script>
+        function showForm(id) {
+            const forms = document.querySelectorAll('.form-section');
+            forms.forEach(form => form.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            
+
+        }
+    </script>
+</body>
+{% endblock %}
+</html>

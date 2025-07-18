@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}User List | NeonCoin Admin{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_user.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>All Users</h1>
+    <input type="text" id="search" placeholder="Search by username or account number..." class="search-input">
+
+    <table class="user-table">
+        <thead>
+            <tr>
+                <th>Account #</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Verified</th>
+                <th>Neo</th>
+                <th>Neons</th>
+                <th>Neolites</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+            {% for user in users %}
+            <tr>
+                <td>{{ user['account_number'] }}</td>
+                <td>{{ user['username'] }}</td>
+                <td>{{ user['email'] }}</td>
+                <td>{{ 'Yes' if user['verified'] else 'No' }}</td>
+                <td>{{ user['neo'] or 0 }}</td>
+                <td>{{ user['neons'] or 0 }}</td>
+                <td>{{ user['neolites'] or 0 }}</td>
+                <td>
+                    {% if user['status'] == 'Banned' %}
+                        <span style="color: red;">{{ user['status'] }}</span>
+                    {% elif 'Timed Out' in user['status'] %}
+                        <span style="color: orange;">{{ user['status'] }}</span>
+                    {% else %}
+                        <span style="color: green;">{{ user['status'] }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+
+            {% if user['status'] == 'Banned' %}
+            <tr>
+                <td colspan="8">
+                    <form action="{{ url_for('unban_user') }}" method="POST" style="display:inline;">
+                        <input type="hidden" name="account_number" value="{{ user['account_number'] }}">
+                        <button type="submit" class="btn btn-success">Unban</button>
+                    </form>
+                </td>
+            </tr>
+            {% elif 'Timed Out' in user['status'] %}
+            <tr>
+                <td colspan="8">
+                    <form action="{{ url_for('lift_timeout', user_id=user['id']) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-warning">Lift Timeout</button>
+                    </form>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/admin" class="back-link">Back to Admin Panel</a>
+</div>
+
+<script>
+    const searchInput = document.getElementById("search");
+    const tableRows = document.querySelectorAll("#userTable tr");
+
+    searchInput.addEventListener("keyup", function () {
+        const filter = this.value.toLowerCase();
+        tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+</script>
+{% endblock %}

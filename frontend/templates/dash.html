@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to NeonCoin{% endblock %}
+
+{% block extra_head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash.css') }}">
+    <script defer src="{{ url_for('static', filename='js/dash.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<body>
+    <main class="dashboard">
+
+        <!-- BALANCES SECTION -->
+        <section class="balances">
+            <div class="tit"><h2>Your Balances</h2></div>
+            <div class="balances">
+                <div class="balance-card neo" id="neo">
+                    <h3>Neo</h3>
+                    <p>{{ user_balances.neo }}</p>
+                </div>
+                <div class="balance-card neons" id="neons">
+                    <h3>Neons</h3>
+                    <p>{{ user_balances.neons }}</p>
+                </div>
+                <div class="balance-card neolites" id="neolites">
+                    <h3>Neolites</h3>
+                    <p>{{ user_balances.neolites }}</p>
+                </div>
+            </div>
+
+            <div class="dashboard-actions">
+                <a href="/buy" class="btn neon-btn">Spin Coins</a>
+                <a href="/trade" class="btn neon-btn">Transfer Coins</a>
+            </div>
+        </section>
+
+        <!-- CONVERTER SECTION -->
+        <section class="convert-section">
+            <h2>Convert NeonCoin Currencies</h2>
+            <div class="converter">
+                <input type="number" id="amount" placeholder="Enter amount">
+                <select id="from">
+                    <option value="neo">Neo</option>
+                    <option value="neons">Neons</option>
+                    <option value="neolites">Neolites</option>
+                </select>
+                <span>to</span>
+                <select id="to">
+                    <option value="neo">Neo</option>
+                    <option value="neons">Neons</option>
+                    <option value="neolites">Neolites</option>
+                </select>
+                <button onclick="convert()">Convert</button>
+                <p id="result"></p>
+            </div>
+        </section>
+
+        <!-- TRANSACTIONS SECTION -->
+        <section class="transactions-section">
+            <h2>Recent Transactions</h2>
+            {% if transactions %}
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Other User</th>
+                            <th>Currency</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for t in transactions %}
+                            <tr>
+                                <td>{{ 'Sent' if t.sender_id == session['user_id'] else 'Received' }}</td>
+                                <td>{{ t.other_user }}</td>
+                                <td>{{ t.currency|capitalize }}</td>
+                                <td>{{ t.amount }}</td>
+                                <td>{{ t.timestamp }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No transactions yet.</p>
+            {% endif %}
+        </section>
+        <a href="/all-transactions" class="btn neon-btn">View All Transactions</a>
+        <!-- FILTER SECTION -->
+        
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 NeonCoin. All Rights Reserved.</p>
+    </footer>
+</body>
+{% endblock %}

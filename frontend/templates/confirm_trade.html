@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Confirm Trade | NeonCoin{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/confirm_trade.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="confirm-box">
+    <h2>Confirm Trade</h2>
+    
+    <p><strong>From:</strong> {{ current_user.username }} ({{ current_user.account_number }})</p>
+    <p><strong>To:</strong> {{ recipient }} ({{reciever_username}})</p>
+    <p><strong>Currency:</strong> {{ currency }}</p>
+    <p><strong>Amount:</strong> {{ amount }}</p>
+
+    <form method="POST" action="{{ url_for('finalize_trade') }}">
+        <!-- Hidden inputs to carry data over -->
+        <input type="hidden" name="recipient" value="{{ recipient }}">
+        <input type="hidden" name="currency" value="{{ currency }}">
+        <input type="hidden" name="amount" value="{{ amount }}">
+
+        <div class="confirm-buttons">
+            <button type="submit">Confirm</button>
+            <a href="{{ url_for('trade') }}">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

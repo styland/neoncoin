@@ -1,0 +1,49 @@
+/* confirm_trade.css */
+
+.confirm-box {
+    background-color: #1a1a2e;
+    border: 2px solid #00f5ff;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 60px auto;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 20px #00f5ff;
+  }
+  
+  .confirm-box h2 {
+    color: #00f5ff;
+    margin-bottom: 20px;
+  }
+  
+  .confirm-box p {
+    margin: 12px 0;
+    font-size: 18px;
+  }
+  
+  .confirm-buttons {
+    margin-top: 30px;
+  }
+  
+  .confirm-buttons button,
+  .confirm-buttons a {
+    margin: 0 10px;
+    padding: 10px 24px;
+    border: none;
+    background-color: #00f5ff;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .confirm-buttons button:hover,
+  .confirm-buttons a:hover {
+    background-color: #00c0cc;
+  }
+body{
+    background: #1c1c1c;
+}  

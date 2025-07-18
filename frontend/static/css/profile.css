@@ -1,0 +1,117 @@
+/* General Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Background */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1a1a1a; /* Dark background for neon effect */
+    color: #fff; /* White text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Wrapper */
+.dashboard {
+    width: 40%;
+    height: 75%;
+    max-height: 800px;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Profile Container */
+.profile-container {
+    background-color: #2c2f38; /* Slightly darker background for profile */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); /* Neon green glow */
+    margin-top: 40px;
+    width: 700px;
+    height: 500px;
+}
+
+/* Profile Name */
+.profile-container h2 {
+    color: #39ff14; /* Neon green color */
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Profile Picture */
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #39ff14; /* Neon green border */
+    margin-bottom: 20px;
+}
+
+/* Unique Reference */
+.profile-container p {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Balance Section */
+.balance p {
+    font-size: 30px;
+    color: #aaa;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.balance p strong {
+    color: #39ff14; /* Neon green for the balance label */
+}
+
+/* Button */
+.btn {
+    background-color: #39ff14; /* Neon green */
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-size: 16px;
+    padding: 15px 30px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    transition: 0.3s;
+    margin-top: 40px;
+    text-decoration: none; /* Remove underline from link */
+}
+
+.btn:hover {
+    background-color: #32c80e; /* Darker neon green */
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 30px;
+    }
+
+    .profile-picture img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-container h2 {
+        font-size: 28px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+    }
+}
