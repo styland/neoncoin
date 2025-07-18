@@ -1,5 +1,5 @@
 ﻿asgiref==3.9.1
-gunicorn==23.0.0
+gunicorn==21.2.0
 blinker==1.9.0
 certifi==2025.1.31
 charset-normalizer==3.4.1
